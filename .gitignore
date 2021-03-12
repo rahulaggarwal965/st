@@ -1,0 +1,5 @@
+*.orig
+.cache/
+compile_commands.json
+patches/
+*.o
