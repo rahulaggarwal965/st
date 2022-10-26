@@ -8,7 +8,7 @@
 static char *font = "Roboto Mono Nerd Font:pixelsize=14:lcdfilter=lcddefault:rgba=rgb:antialias=true:autohint=true";
 /* Spare fonts */
 static char *font2[] = {};
-static int borderpx = 10;
+static int borderpx = 0;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -18,7 +18,7 @@ static int borderpx = 10;
  * 4: value of shell in /etc/passwd
  * 5: value of shell in config.h
  */
-static char *shell = "/bin/zsh";
+static char *shell = "/bin/sh";
 char *utmp = NULL;
 /* scroll program: to enable use a string like "scroll" */
 char *scroll = NULL;
