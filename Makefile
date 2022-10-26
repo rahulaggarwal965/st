@@ -4,7 +4,7 @@
 
 include config.mk
 
-SRC = st.c x.c boxdraw.c
+SRC = st.c x.c
 OBJ = $(SRC:.c=.o)
 
 all: options st
@@ -23,7 +23,6 @@ config.h:
 
 st.o: config.h st.h win.h
 x.o: arg.h config.h st.h win.h
-boxdraw.o: config.h st.h boxdraw_data.h
 
 $(OBJ): config.h config.mk
 
@@ -49,13 +48,13 @@ install: st
 	sed "s/VERSION/$(VERSION)/g" < st.1 > $(DESTDIR)$(MANPREFIX)/man1/st.1
 	chmod 644 $(DESTDIR)$(MANPREFIX)/man1/st.1
 	tic -sx st.info
+	mkdir -p $(DESTDIR)$(PREFIX)/share/applications # desktop-entry patch
+	cp -n st.desktop $(DESTDIR)$(PREFIX)/share/applications # desktop-entry patch
 	@echo Please see the README file regarding the terminfo entry of st.
-	mkdir -p $(DESTDIR)$(PREFIX)/share/applications
-	cp -f st.desktop $(DESTDIR)$(PREFIX)/share/applications
 
 uninstall:
 	rm -f $(DESTDIR)$(PREFIX)/bin/st
 	rm -f $(DESTDIR)$(MANPREFIX)/man1/st.1
-	rm -f $(DESTDIR)$(PREFIX)/share/applications/st.desktop
+	rm -f $(DESTDIR)$(PREFIX)/share/applications/st.desktop # desktop-entry patch
 
 .PHONY: all options clean dist install uninstall

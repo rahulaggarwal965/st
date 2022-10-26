@@ -1,5 +1,8 @@
-*.orig
 .cache/
 compile_commands.json
-patches/
+
+config.h
+st
 *.o
+*.orig
+*.rej
