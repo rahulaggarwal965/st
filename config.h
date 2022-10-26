@@ -8,7 +8,7 @@
 static char *font = "Roboto Mono Nerd Font:pixelsize=14:lcdfilter=lcddefault:rgba=rgb:antialias=true:autohint=true";
 /* Spare fonts */
 static char *font2[] = {};
-static int borderpx = 0;
+static int borderpx = 10;
 
 /*
  * What program is execed by st depends of these precedence rules:
