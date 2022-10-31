@@ -21,12 +21,6 @@ pkgver() {
 		"$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
-prepare() {
-	cd "${pkgname}"
-	# skip terminfo which conflicts with ncurses
-	sed -i '/tic /d' Makefile
-}
-
 build() {
 	cd "${pkgname}"
 	make X11INC=/usr/include/X11 X11LIB=/usr/lib/X11 CFLAGS=-O2
